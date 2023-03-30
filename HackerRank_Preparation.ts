@@ -79,7 +79,7 @@ from students as s
 join grades as g on s.marks between g.min_mark and g.max_mark
 order by g.grade desc, s.name, s.marks;
 
-////////////////requete imbriquée
+////////////////requete imbriquÃ©e
 //////////////////////////////////
 select w.id, wp.age, w.coins_needed, w.power
 from wands as w
@@ -112,7 +112,7 @@ from tab1
 where tab1.nbre=(select max(tab1.nbre) from tab1)
 or tab1.nbre in (select nbre from tab2);
 
-//////////////////requete imbriquée
+//////////////////requete imbriquÃ©e
 ///////////////////////////////////////////////////
 select derived.hacker_id, derived.name, sum(derived.max_score) as total_score
 from 
@@ -132,11 +132,11 @@ with t1 as (select start_date, row_number() over(order by start_date ) as c1 fro
 t2 as (select end_date, row_number() over(order by start_date ) as c2 from projects where end_date not in (select start_date from projects))
 select start_date,end_date from t1,t2 where c1=c2 order by datediff(start_date,end_date) desc;
 
-///////////////////// Procédure stockée et impression de triangle
+///////////////////// ProcÃ©dure stockÃ©e et impression de triangle
 /////////////////////////////////////////////////////////////////
 
 create table stars (star varchar(123));
-///procédure stockée
+///procÃ©dure stockÃ©e
 ////////////////////
 delimiter |
 create procedure P(in R int)
@@ -148,7 +148,7 @@ insert into stars(star) values (repeat('* ', i));
 set i= i-1;
 end while;
 end |
-//////appel de la procédure et affichage
+//////appel de la procÃ©dure et affichage
 ////////////////////////////////////////
 delimiter ;
 call P(20);

@@ -183,6 +183,22 @@ join packages p2 on p2.id = f.friend_id
 where p1.salary < p2.salary
 order by p2.salary;
 
+///////////////////////JOIN
+////////////////////////////////////////
+
+SELECT DISTINCT
+A.X,
+A.Y
+FROM FUNCTIONS A
+ JOIN FUNCTIONS B ON A.Y=B.X
+WHERE 
+    A.X=B.Y 
+    AND A.X <= A.Y 
+    AND (
+        (A.X<>A.Y) OR 
+        (A.X IN (SELECT A.X FROM FUNCTIONS A WHERE A.X=A.Y GROUP BY A.X, A.Y HAVING COUNT(*)>1))
+        )
+ORDER BY A.X;
 
 
 
